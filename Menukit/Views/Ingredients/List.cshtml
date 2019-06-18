@@ -1,0 +1,17 @@
+﻿@model IEnumerable<Menukit.Models.Entities.Ingredient>
+
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>List</h2>
+
+<p>Please, choose an ingredient</p>
+
+@foreach (var ingredient in Model)
+{
+    <div class="Item">
+        <h3>@ingredient.Name</h3>
+        @ingredient.Category
+    </div>
+}
