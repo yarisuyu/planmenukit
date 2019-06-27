@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 using Menukit.Models.Abstract;
 using Menukit.Models.Concrete;
+using Menukit.Models.Entities;
 
 namespace Menukit.Controllers
 {
@@ -15,7 +16,7 @@ namespace Menukit.Controllers
 
         public IngredientsController()
         {
-            this.ingredientsRepository = new FakeIngredientsRepository();
+            this.ingredientsRepository = new SqlIngredientsRepository();
         }
 
         public ViewResult List()
