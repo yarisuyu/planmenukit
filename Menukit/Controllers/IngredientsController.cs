@@ -14,9 +14,9 @@ namespace Menukit.Controllers
     {
         private IIngredientsRepository ingredientsRepository;
 
-        public IngredientsController()
+        public IngredientsController(IIngredientsRepository ingredientsRepository)
         {
-            this.ingredientsRepository = new SqlIngredientsRepository();
+            this.ingredientsRepository = ingredientsRepository;
         }
 
         public ViewResult List()
