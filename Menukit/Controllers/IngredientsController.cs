@@ -23,6 +23,10 @@ namespace Menukit.Controllers
         
         public ViewResult List(int page)
         {
+            int numProducts = ingredientsRepository.Ingredients.Count();
+            ViewData["TotalPages"] = (int)Math.Ceiling((double)numProducts / PageSize);
+            ViewData["CurrentPage"] = page;
+
             return View(ingredientsRepository.Ingredients
                 .Skip((page - 1) * PageSize)
                 .Take(PageSize)

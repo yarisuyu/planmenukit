@@ -29,6 +29,8 @@ namespace Tests
             Assert.IsNotNull(result, "Didn't render view");
             var ingredients = result.ViewData.Model as IList<Ingredient>;
             Assert.AreEqual(2, ingredients.Count, "Got wrong number of ingredients");
+            Assert.AreEqual(2, (int)result.ViewData["CurrentPage"]);
+            Assert.AreEqual(2, (int)result.ViewData["TotalPages"]);
             Assert.AreEqual("I4", ingredients[0].Name);
             Assert.AreEqual("I5", ingredients[1].Name);
         }
