@@ -15,8 +15,14 @@ namespace Menukit
 
             routes.MapRoute(
                 name: "Default",
-                url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Ingredients", action = "List", id = UrlParameter.Optional }
+                url: "",
+                defaults: new { controller = "Ingredients", action = "List", page = 1 }
+            );
+
+            routes.MapRoute(
+                name: "",
+                url: "Page{page}",
+                defaults: new { controller = "Ingredients", action = "List", page = @"\d+" }
             );
         }
     }

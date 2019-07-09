@@ -4,9 +4,9 @@
     ViewBag.Title = "List";
 }
 
-<h2>List</h2>
+<div id="header">Ингредиенты</div>
 
-<p>Please, choose an ingredient</p>
+<p>Выбери основной ингредиент блюда</p>
 
 @foreach (var ingredient in Model)
 {
@@ -15,3 +15,8 @@
         @ingredient.Category
     </div>
 }
+
+<div class="pager">
+    @Html.Raw(Html.PageLinks((int)ViewData["CurrentPage"], (int)ViewData["TotalPages"],
+                    x => Url.Action("List", new {page = x})))
+</div>

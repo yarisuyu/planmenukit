@@ -14,14 +14,23 @@ namespace Menukit.Controllers
     {
         private IIngredientsRepository ingredientsRepository;
 
+        public int PageSize = 4;
+
         public IngredientsController(IIngredientsRepository ingredientsRepository)
         {
             this.ingredientsRepository = ingredientsRepository;
         }
-
-        public ViewResult List()
+        
+        public ViewResult List(int page)
         {
-            return View(ingredientsRepository.Ingredients.ToList());
+            int numProducts = ingredientsRepository.Ingredients.Count();
+            ViewData["TotalPages"] = (int)Math.Ceiling((double)numProducts / PageSize);
+            ViewData["CurrentPage"] = page;
+
+            return View(ingredientsRepository.Ingredients
+                .Skip((page - 1) * PageSize)
+                .Take(PageSize)
+                .ToList());
         }
     }
 }
