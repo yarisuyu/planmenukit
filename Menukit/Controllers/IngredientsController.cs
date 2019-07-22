@@ -21,13 +21,17 @@ namespace Menukit.Controllers
             this.ingredientsRepository = ingredientsRepository;
         }
         
-        public ViewResult List(int page)
+        public ViewResult List(string category, int page)
         {
-            int numProducts = ingredientsRepository.Ingredients.Count();
+            var ingredientsInCategory = (category == null)
+                ? ingredientsRepository.Ingredients
+                : ingredientsRepository.Ingredients.Where(x => x.Category == category);
+            int numProducts = ingredientsInCategory.Count();
             ViewData["TotalPages"] = (int)Math.Ceiling((double)numProducts / PageSize);
             ViewData["CurrentPage"] = page;
+            ViewData["CurrentCategory"] = category;
 
-            return View(ingredientsRepository.Ingredients
+            return View(ingredientsInCategory
                 .Skip((page - 1) * PageSize)
                 .Take(PageSize)
                 .ToList());
