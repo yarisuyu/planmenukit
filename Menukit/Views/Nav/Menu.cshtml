@@ -1,0 +1,10 @@
+﻿@model IEnumerable<Menukit.Controllers.NavLink>
+
+@foreach(var link in Model)
+{
+    <a href="@Url.RouteUrl(link.RouteValues)"
+       class="@(link.IsSelected ? "selected" : "")">
+        @link.Text
+    </a>
+}
+

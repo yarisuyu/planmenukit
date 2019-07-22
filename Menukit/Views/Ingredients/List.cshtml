@@ -1,7 +1,10 @@
 ﻿@model IEnumerable<Menukit.Models.Entities.Ingredient>
 
 @{
-    ViewBag.Title = "List";
+    ViewBag.Title = "MenuKit: " + 
+        (string.IsNullOrEmpty((string)ViewData["CurrentCategory"])
+        ? "Все ингредиенты"
+        : Html.Encode(ViewData["CurrentCategory"]));
 }
 
 <div id="header">Ингредиенты</div>
@@ -18,5 +21,6 @@
 
 <div class="pager">
     @Html.Raw(Html.PageLinks((int)ViewData["CurrentPage"], (int)ViewData["TotalPages"],
-                    x => Url.Action("List", new {page = x})))
+                    x => Url.Action("List", new {page = x,
+                    category = ViewData["CurrentCategory"]})))
 </div>

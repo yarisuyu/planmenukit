@@ -85,7 +85,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="InboundRoutingTests.cs" />
     <Compile Include="IngredientsControllerTests.cs" />
+    <Compile Include="NavControllerTests.cs" />
+    <Compile Include="OutboundRoutingTests.cs" />
     <Compile Include="PageHelperTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
