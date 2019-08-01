@@ -34,7 +34,14 @@ namespace Menukit
 
         protected override IController GetControllerInstance(RequestContext requestContext, Type controllerType)
         {
-            return (IController)container.Resolve(controllerType);
+            if (controllerType != null)
+            {
+                return (IController)container.Resolve(controllerType);
+            }
+            else
+            {
+                return base.GetControllerInstance(requestContext, controllerType);
+            }
         }
     }
 }

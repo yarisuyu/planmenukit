@@ -160,6 +160,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\IngredientsController.cs" />
+    <Compile Include="Controllers\PantryController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -169,6 +170,8 @@
     <Compile Include="Models\Concrete\IngredientContext.cs" />
     <Compile Include="Models\Concrete\SqlIngredientsRepository.cs" />
     <Compile Include="Models\Entities\Ingredient.cs" />
+    <Compile Include="Models\Entities\Pantry.cs" />
+    <Compile Include="PantryModelBinder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WindsorControllerFactory.cs" />
   </ItemGroup>
@@ -206,6 +209,9 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Ingredients\List.cshtml" />
+    <Content Include="Views\Shared\IngredientSummary.cshtml" />
+    <Content Include="Views\Pantry\Index.cshtml" />
+    <Content Include="Views\Pantry\Summary.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

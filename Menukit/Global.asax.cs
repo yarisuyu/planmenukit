@@ -1,3 +1,4 @@
+using Menukit.Models.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +18,7 @@ namespace Menukit
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             ControllerBuilder.Current.SetControllerFactory(new WindsorControllerFactory());
+            ModelBinders.Binders.Add(typeof(Pantry), new PantryModelBinder());
         }
     }
 }

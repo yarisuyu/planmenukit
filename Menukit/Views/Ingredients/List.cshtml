@@ -10,13 +10,20 @@
 
 @foreach (var ingredient in Model)
 {
-    <div class="Item">
-        <h3>@ingredient.Name</h3>
-        @ingredient.Category
-    </div>
+    @*@Html.RenderPartial("IngredientSummary", ingredient);*@
+    <h3>@ingredient.Name</h3>
+    @ingredient.Category
+
+    using (Html.BeginForm("AddToPantry", "Pantry"))
+    {
+        @Html.Hidden("ingredientId", ingredient.IngredientID);
+        @Html.Hidden("returnUrl",
+            ViewContext.HttpContext.Request.Url.PathAndQuery);
+        <input type="submit" value="+ Добавить в кладовую">
+    }
 }
 
 <div class="pager">
     @Html.Raw(Html.PageLinks((int)ViewData["CurrentPage"], (int)ViewData["TotalPages"],
-                    x => Url.Action("List", new {page = x})))
+                    x => Url.Action("List", new { page = x })))
 </div>

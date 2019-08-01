@@ -24,6 +24,21 @@ namespace Menukit
                 url: "Page{page}",
                 defaults: new { controller = "Ingredients", action = "List", page = @"\d+" }
             );
+
+            routes.MapRoute(
+                name: "",
+                url: "{category}",
+                defaults: new { controller = "Ingredients", action = "List", page = @"\d+" }
+            );
+
+            routes.MapRoute(
+                name: "",
+                url: "{category}/Page{page}",
+                defaults: new { controller = "Ingredients", action = "List" },
+                    new { page = @"\d+" }
+            );
+
+            routes.MapRoute(null, "{controller}/{action}");
         }
     }
 }
