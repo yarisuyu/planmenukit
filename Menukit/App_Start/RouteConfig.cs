@@ -16,13 +16,43 @@ namespace Menukit
             routes.MapRoute(
                 name: "Default",
                 url: "",
-                defaults: new { controller = "Ingredients", action = "List", page = 1 }
+                defaults: new { controller = "Ingredients", action = "List",
+                    category = (string)null, page = 1 }
             );
 
             routes.MapRoute(
                 name: "",
                 url: "Page{page}",
-                defaults: new { controller = "Ingredients", action = "List", page = @"\d+" }
+                defaults: new
+                {
+                    controller = "Ingredients",
+                    action = "List",
+                    category = (string)null
+                }, 
+                constraints: new { page = @"\d+" }
+            );
+
+            routes.MapRoute(
+                name: "",
+                url: "{category}",
+                defaults: new { controller = "Ingredients", action = "List",
+                    page = 1 }
+            );
+
+            routes.MapRoute(
+                name: "",
+                url: "{category}/Page{page}",
+                defaults: new
+                {
+                    controller = "Ingredients",
+                    action = "List"
+                },
+                constraints: new { page = @"\d+" }
+            );
+
+            routes.MapRoute(
+                name: "",
+                url: "{controller}/{action}"
             );
 
             routes.MapRoute(

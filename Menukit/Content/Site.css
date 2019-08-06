@@ -28,6 +28,7 @@ div#content {
 div#categories {
     float: left;
     width: 8em;
+    padding-right: 100px;
     padding: .3em;
 }
 

@@ -161,6 +161,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\IngredientsController.cs" />
     <Compile Include="Controllers\PantryController.cs" />
+    <Compile Include="Controllers\NavController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -212,6 +213,7 @@
     <Content Include="Views\Shared\IngredientSummary.cshtml" />
     <Content Include="Views\Pantry\Index.cshtml" />
     <Content Include="Views\Pantry\Summary.cshtml" />
+    <Content Include="Views\Nav\Menu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
