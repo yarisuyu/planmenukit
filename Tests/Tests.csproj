@@ -90,6 +90,8 @@
     <Compile Include="NavControllerTests.cs" />
     <Compile Include="OutboundRoutingTests.cs" />
     <Compile Include="PageHelperTests.cs" />
+    <Compile Include="PantryControllerTests.cs" />
+    <Compile Include="PantryTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

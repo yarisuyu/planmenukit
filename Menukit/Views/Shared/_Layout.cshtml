@@ -24,7 +24,14 @@
                     <li>@Html.ActionLink("Меню", "List", "Ingredients")</li>
                     <li>@Html.ActionLink("Информация", "About", "Home")</li>
                     <li>@Html.ActionLink("Связаться", "Contact", "Home")</li>
+                    <li>
+                        @if (!(ViewContext.Controller is Menukit.Controllers.PantryController))
+                        {
+                            Html.RenderAction("Summary", "Pantry");
+                        }
+                    </li>
                 </ul>
+
             </div>
         </div>
     </div>

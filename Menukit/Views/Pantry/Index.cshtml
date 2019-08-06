@@ -1,0 +1,38 @@
+﻿@model Menukit.Models.Entities.Pantry
+
+@{
+    ViewBag.Title = "Menukit: Кладовая";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Моя кладовая</h2>
+<table width="90%" align="center">
+    <thead>
+        <tr>
+            <th align="center">Продукты</th>
+            <th align="left">Количество</th>
+            <th align="left"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var line in Model.Lines)
+        {
+            <tr>
+                <td align="center">@line.Ingredient.Name</td>
+                <td align="left">@line.Quantity</td>
+                <td>
+                    @using (@Html.BeginForm("RemoveFromPantry", "Pantry"))
+                    {
+                        @Html.Hidden("IngredientId", line.Ingredient.IngredientID);
+                        @Html.Hidden("returnUrl", ViewData["returnUrl"]);
+                        <input type="submit" value="Удалить"/>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<p align="center" class="actionButtons">
+    <a href="@Html.Encode(ViewData["returnUrl"])">Добавить продукты в кладовую</a>
+</p>

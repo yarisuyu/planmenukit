@@ -1,0 +1,18 @@
+﻿@model Menukit.Models.Entities.Ingredient
+
+@{ 
+    Layout = null;
+}
+
+<div class="Item">
+    <h3>@Model.Name</h3>
+    @Model.Category
+
+    @using (Html.BeginForm("AddToPantry", "Pantry"))
+    {
+        @Html.Hidden("ingredientId");
+        @Html.Hidden("returnUrl",
+            ViewContext.HttpContext.Request.Url.PathAndQuery);
+        <input type="submit" value="+ Добавить в кладовую">
+    }
+</div>

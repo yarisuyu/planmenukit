@@ -1,0 +1,18 @@
+﻿@model Menukit.Models.Entities.Pantry
+
+@{ 
+    Layout = null;
+}
+
+@if (Model.Lines.Count > 0)
+{
+    <div id="pantry">
+        <span class="summary">
+            <b>Моя кладовая:</b>
+            @Model.Lines.Count продуктов
+        </span>
+        @Html.ActionLink("Кладовая", "Index", "Pantry",
+                new { returnUrl = Request.Url.PathAndQuery}, null)
+    </div>
+}
+

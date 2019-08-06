@@ -26,23 +26,11 @@ div#content {
 }
 
 div#categories {
-    display: block;
-    /*float: left;*/
+    float: left;
     width: 8em;
     padding-right: 100px;
     padding: .3em;
 }
-
-div#categories a {
-    font: bold 1.1em "Arial Narrow", "Franklin Gothic Medium", arial;
-    display: block;
-    text-decoration: none; padding: .6em; color: black;
-    border-bottom: 1px solid silver;
-}
-
-div#categories a.selected { background-color: #666; color: white; }
-div#categories a:hover { background-color: #CCC; }
-div#categories a.selected:hover { background-color: #666; }
 
 div.item {
     border-top: 1px dotted gray;
@@ -87,3 +75,46 @@ div.pager a.selected {
     background-color: #353535;
     color: White;
 }
+
+form {
+    margin: 0;
+    padding: 0;
+}
+
+div.item form { float: right; }
+
+div.item input {
+    color: white;
+    background-color: #333;
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+h2 { margin-top: 0.3em}
+tfoot td { border-top: 1px dotted gray; font-weight: bold; }
+
+.actionButtons a {
+    font: .8em Arial; color: white; margin: 0 .5em 0 .5em;
+    text-decoration: none; padding: .15em 1.5em .2em 1.5em;
+    background-color: #353535; border: 1px solid black;
+}
+
+div#pantry {
+    float: right;
+    margin: .8em;
+    color: silver;
+    background-color: #555;
+    padding: .5em .5em .5em 1em;
+}
+
+div#pantry a {
+    text-decoration: none;
+    padding: .4em 1em .4em 1em;
+    line-height: 2.1em;
+    margin-left: .5em;
+    background-color: #333;
+    color: white;
+    border: 1px solid black;
+}
+
+div#pantry span.summary { color: white; }
