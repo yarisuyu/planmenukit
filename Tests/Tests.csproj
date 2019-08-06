@@ -85,6 +85,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminControllerTests.cs" />
     <Compile Include="InboundRoutingTests.cs" />
     <Compile Include="IngredientsControllerTests.cs" />
     <Compile Include="NavControllerTests.cs" />
