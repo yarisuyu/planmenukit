@@ -14,7 +14,7 @@ namespace Tests
     public class IngredientsControllerTests
     {
         [Test]
-        public void ListPresentsCorrectPageOfIngredients()
+        public void List_Presents_Correct_Page_Of_Ingredients()
         {
             IIngredientsRepository repository = MockIngredientsRepository(
                 new Ingredient { Name = "I1" }, new Ingredient { Name = "I2" },
