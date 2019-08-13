@@ -40,6 +40,12 @@ namespace Menukit.Models.Concrete
             ctx.SaveChanges();
         }
 
+        public void DeleteIngredient(Ingredient ingredient)
+        {
+            ctx.Ingredients.Remove(ingredient);
+            ctx.SaveChanges();
+        }
+
         private void EnsureValid(IDataErrorInfo validatable, params string[] properties)
         {
             if (properties.Any(x => validatable[x] != null))

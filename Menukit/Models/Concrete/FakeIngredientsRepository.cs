@@ -24,6 +24,11 @@ namespace Menukit.Models.Concrete
             get { return fakeIngredients; }
         }
 
+        public void DeleteIngredient(Ingredient ingredient)
+        {
+            throw new NotImplementedException();
+        }
+
         public void SaveIngredient(Ingredient ingredient)
         {
             Ingredient ingr = fakeIngredients.FirstOrDefault();
@@ -39,5 +44,4 @@ namespace Menukit.Models.Concrete
             }
         }
     }
-
 }

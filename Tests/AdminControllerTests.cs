@@ -96,5 +96,18 @@ namespace Tests
             Assert.AreEqual("", ((Ingredient)result.Model).Name);
             Assert.AreEqual("", ((Ingredient)result.Model).Category);
         }
+
+        [Test]
+        public void Delete_Action_Deletes_Ingredient_Then_Redirects_To_Index()
+        {
+            AdminController controller = new AdminController(mockRepos.Object);
+            Ingredient ingred24 = mockRepos.Object.Ingredients.First(i => i.IngredientID == 24);
+
+            RedirectToRouteResult result = controller.Delete(24);
+
+            Assert.AreEqual("Index", result.RouteValues["action"]);
+            Assert.AreEqual("Ингредиент 24 удален", controller.TempData["message"]);
+            mockRepos.Verify(x => x.DeleteIngredient(ingred24));
+        }
     }
 }

@@ -10,5 +10,6 @@ namespace Menukit.Models.Abstract
     {
         IQueryable<Ingredient> Ingredients { get; }
         void SaveIngredient(Ingredient ingredient);
+        void DeleteIngredient(Ingredient ingredient);
     }
 }

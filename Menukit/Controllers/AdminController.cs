@@ -8,6 +8,7 @@ using System.Web.Mvc;
 
 namespace Menukit.Controllers
 {
+    [Authorize]
     public class AdminController : Controller
     {
         private IIngredientsRepository ingredientsRepository;
@@ -52,6 +53,17 @@ namespace Menukit.Controllers
         public ViewResult Create()
         {
             return View("Edit", new Ingredient());
+        }
+
+        public RedirectToRouteResult Delete(int ingredientID)
+        {
+            Ingredient ingredient = (from i in ingredientsRepository.Ingredients
+                                     where i.IngredientID == ingredientID
+                                     select i).First();
+            ingredientsRepository.DeleteIngredient(ingredient);
+            TempData["message"] = "Ингредиент " + ingredientID + " удален";
+
+            return RedirectToAction("Index");
         }
     }
 }

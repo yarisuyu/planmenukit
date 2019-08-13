@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "Админ: Вход";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Вход</h1>
+
+@if ((bool?)ViewData["LastLoginFailed"] == true)
+{
+    <div class="Message">
+        Не удалось войти. Попробуйте еще раз.
+    </div>
+}
+
+<p>Пожалуйста, залогиньтесь, чтобы начать администрирование</p>
+
+@using (Html.BeginForm())
+{
+    <div>Имя пользователя: @Html.TextBox("name") </div>
+    <div>Пароль: @Html.Password("password") </div>
+    <p><input type="submit" value="Войти" /></p>
+}
