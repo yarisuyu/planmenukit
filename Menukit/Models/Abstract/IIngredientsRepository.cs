@@ -9,5 +9,7 @@ namespace Menukit.Models.Abstract
     public interface IIngredientsRepository
     {
         IQueryable<Ingredient> Ingredients { get; }
+        void SaveIngredient(Ingredient ingredient);
+        void DeleteIngredient(Ingredient ingredient);
     }
 }

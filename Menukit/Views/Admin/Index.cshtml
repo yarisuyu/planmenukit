@@ -1,0 +1,29 @@
+﻿@model IEnumerable<Menukit.Models.Entities.Ingredient>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Все ингредиенты</h1>
+
+<table class="grid">
+    <tr>
+        <th>ID</th>
+        <th>Название</th>
+        <th>Действие</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.IngredientID</td>
+            <td>@item.Name</td>
+            <td>
+                @Html.ActionLink("Редактировать", "Edit", new { item.IngredientID })
+                @Html.ActionLink("Удалить", "Delete", new { item.IngredientID })
+            </td>
+        </tr>
+    }
+</table>
+<p>@Html.ActionLink("Добавить ингредиент", "Create")</p>
+

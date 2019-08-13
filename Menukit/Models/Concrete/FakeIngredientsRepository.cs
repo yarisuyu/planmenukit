@@ -23,6 +23,25 @@ namespace Menukit.Models.Concrete
         {
             get { return fakeIngredients; }
         }
-    }
 
+        public void DeleteIngredient(Ingredient ingredient)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SaveIngredient(Ingredient ingredient)
+        {
+            Ingredient ingr = fakeIngredients.FirstOrDefault();
+            if (ingr == null)
+            {
+                ingredient.IngredientID = fakeIngredients.Count();
+                fakeIngredients.Append(ingredient);
+            }
+            else
+            {
+                ingr.Name = ingredient.Name;
+                ingr.Category = ingredient.Category;
+            }
+        }
+    }
 }

@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    @if (TempData["message"] != null)
+    {
+        <div class="Message">@Html.Encode(TempData["message"])</div>
+    }
+    <div>
+        @RenderBody()
+    </div>
+</body>
+</html>
